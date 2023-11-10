@@ -1,0 +1,224 @@
+﻿body {
+    background-size: contain;
+    background-image: url('../../image/bg.png');
+}
+
+#menu ul li:nth-child(1) a {
+    font-weight: bold;
+    color: black;
+}
+/*顶部内容*/
+#top {
+    height: 376px;
+    width: 1220px;
+    margin: 0px auto;
+    box-shadow: 5px 0px 6px #b8b5b5;
+}
+
+    #top ul {
+        list-style: none;
+    }
+
+        #top ul li img {
+            height: 376px;
+            width: 1220px;
+        }
+/*精选*/
+#jian {
+    height: 512px;
+    width: 1220px;
+    margin: 0px auto;
+}
+
+    #jian a {
+        height: 400px;
+        width: 300px;
+        box-shadow: 5px 0px 6px #b8b5b5;
+        margin-right: 3px;
+        text-align: center;
+        background-color: antiquewhite;
+    }
+
+        #jian a dl {
+            margin-right: 20px;
+        }
+
+    #jian dl dt img {
+        height: 300px;
+        width: 300px;
+    }
+
+    #jian a {
+        float: left;
+    }
+
+    #jian p {
+        height: 50px;
+        width: 1220px;
+        margin: 0px auto;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #jian a {
+        text-decoration: none;
+    }
+
+.ef {
+    color: black;
+    font-size: 20px;
+}
+
+.ji {
+    color: #b8b5b5;
+    font-size: 15px;
+}
+
+.e {
+    line-height: 50px;
+    color: black;
+    font-size: 20px;
+}
+
+#gril {
+    height: 800px;
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#griltop img {
+    height: 300px;
+    width: 1280px;
+}
+
+#gril p {
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    left: 600px;
+    top: 1200px;
+}
+
+#zhuang {
+    width: 1220px;
+    height: 500px;
+    margin: 0px auto;
+}
+
+    #zhuang img {
+        width: 350px;
+        height: 300px;
+    }
+
+    #zhuang dl {
+        float: left;
+        width: 380px;
+        height: 450px;
+        border: 1px solid black;
+        margin-left: 10px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+.ef {
+    color: black;
+    font-size: 20px;
+}
+
+.ji {
+    color: #b8b5b5;
+    font-size: 15px;
+}
+
+.e {
+    line-height: 50px;
+    color: black;
+    font-size: 20px;
+}
+
+#boy {
+    height: 850px;
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#griltop img {
+    height: 300px;
+    width: 1280px;
+}
+
+#boy p {
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    left: 600px;
+    top: 2000px;
+}
+
+#zhuan {
+    width: 1220px;
+    height: 500px;
+    margin: 0px auto;
+}
+
+    #zhuan img {
+        width: 350px;
+        height: 300px;
+    }
+
+    #zhuan dl {
+        float: left;
+        width: 380px;
+        height: 450px;
+        border: 1px solid black;
+        margin-left: 10px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+.jia {
+    line-height: 50px;
+    color: black;
+    font-size: 20px;
+}
+
+.aa {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    left: 1300px;
+    bottom: 45px;
+}
+
+
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 400px;
+    z-index: 9;
+    display: block;
+}
+
+    #sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #sidebar li {
+        height: 40px;
+        line-height: 40px;
+        width: 100px;
+        text-align: center;
+        background: #0286dd;
+        color: #ffffff;
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+    #sidebar a {
+        color: #ffffff;
+        text-decoration: none;
+    }

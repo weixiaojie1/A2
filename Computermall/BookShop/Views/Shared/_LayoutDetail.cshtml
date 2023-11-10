@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+@model BookShop.Models.Product
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="all">
+
+        <div id="photos">
+            <div id="pleft">
+                <div id="shpw">
+                    <img src="~/image/@Model.Photo" />
+                </div>
+                <ul id="link">
+                    <li>
+                        <img src="~/image/@Model.Photo" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pright">
+            <div id="ptitle">@Model.Title</div>
+            <div>
+                Original price:<span class="price1">@String.Format("{0:C2}", Model.MarketPrice)</span>
+            </div>
+            <div>
+                Current price:
+                <span class="price2">@String.Format("{0:C2}", Model.Price)</span>
+            </div>
+            <div>
+                Inventory quantity:
+                <span class="stock">@Model.Stock piece</span>
+            </div>
+            <div id="pcount">
+                <a href="#">sales volume<span class="red">@ViewBag.TotalSale</span></a>
+            </div>
+            @using (Html.BeginForm("Add", "Car"))
+            {
+                <div>
+                    Purchase quantity:
+                    @*<a href="/Car/Add/@Model.ProductID?quantity=1">+</a>
+                        <input type="text" name="quantity" value="1" class="text" style="width:80px" />件
+                        <a href="/Car/Del/@Model.ProductID">-</a>*@
+                    <span id="increase" class="increase" onclick="add()">+</span>
+                    <input id="quantity" name="quantity" value="1" maxlength="4" type="text" />
+                    <span id="decrease" class="decrease" onclick="sub()">-</span>
+                </div>
+                <div id="op">
+                    <input type="hidden" name="id" value="@Model.ProductID" id="id" />
+                    @if (MyAuthentication.IsLogin())
+                    {
+                        <input type="submit" value="Purchase goods" class="btnop" />
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer id="foots">
+        <div id="nei">
+            <h4>
+                <a href="https://validator.w3.org/nu/" target="_blank">Validate HTML5</a>
+                _assignment2_<a href="https://jigsaw.w3.org/css-validator/" target="_blank">Validate CSS3</a>
+                _22009153_<a href="mailto:your_email@example.com">contactme@123.com</a>
+            </h4>
+
+
+        </div>
+    </footer>
+</body>
+</html>
+<script type="text/javascript">
+ 
+    function add() {
+        var num = parseInt(document.getElementById("quantity").value);
+        if (num < 1000)
+            document.getElementById("quantity").value = num + 1;
+    }
+   
+    function sub() {
+        var num = parseInt(document.getElementById("quantity").value);
+        if (num < 1000)
+            document.getElementById("quantity").value = num - 1;
+    }
+    $(".center p a").click(function () {
+        var img = $(this).parent().siblings("img").attr("src");
+
+    })
+</script>

@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/Gril.css" rel="stylesheet" />
+    <title>News</title>
+</head>
+<body>
+    @Model
+    @model IEnumerable <BookShop.Models.Product>
+    <div id="all">
+        <!--排序-->
+        <div id="botton">
+            <ul>
+                <li class="bone"><a style="color:white;" href="/Home/News">default sort</a></li>
+                <li><a href="/Home/Xiao">Hot sales</a></li>
+                <li><a href="/Home/Price">Price</a></li>
+                <li><a href="/Home/Zhe">discount</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--首页内容-->
+    <div id="middle">
+        <!--军事科学-->
+        <div id="jian">
+            @foreach (Product item in ViewBag.product3)
+            {
+                <a href="/Car/Details/@item.ProductID">
+                    <dl>
+                        <dt><img src="~/image/@item.Photo" /></dt>
+                        <dd class="ef">@item.Title</dd>
+                        <dd class="ji">@item.Content</dd>
+                        <dd>
+                            <span class="e">￥@item.Price</span>
+                            
+                        </dd>
+                    </dl>
+                </a>
+            }
+
+        </div>
+</body>
+</html>

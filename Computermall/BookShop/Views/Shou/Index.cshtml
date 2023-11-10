@@ -1,0 +1,133 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+
+}
+
+<!DOCTYPE html>
+@model PagedList<BookShop.Models.Product>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HOME</title>
+    <link rel="stylesheet" href="~/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/ca3.css">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/css/yS.css" rel="stylesheet" />
+    <script src="~/layui/layui.js"></script>
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test1'
+                , width: '100%' //设置容器宽度
+                , height: '100%'
+                , arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+    </script>
+</head>
+<body @*style="background-image: "*@>
+    <div id="top">
+        <div class="layui-carousel" id="test1">
+            <div carousel-item>
+                <img class="imgs" src="~/image/img/lunbo1.jpg" />
+                <img class="imgs" src="~/image/img/lunbo2.jpg" />
+                <img class="imgs" src="~/image/img/lunbo3.jpg" />
+                <img class="imgs" src="~/image/img/lunbo4.jpg" />
+                <img class="imgs" src="~/image/img/lunbo5.jpg" />
+
+            </div>
+        </div>
+    </div>
+    
+
+    <form id="form1" runat="server">
+        <div class="er">
+            <div class="ee">
+                <b class="e-e">Selected Good Items</b>
+                <span class="e-w">Selected for you</span>
+            </div>
+            <br />
+            <span class="e-h">
+                There are so many good computers, we select them for you
+            </span>
+            <div class="grid pai" style="height: 20px;">
+                @foreach (Product item in ViewBag.Product1)
+                {
+                    <a style=" border: 1px solid black; height: 300px; width: 250px; border-radius: 5px;" href="/Car/Details/@item.ProductID">
+                        <dl @*class="grid-cell-1 p"*@>
+                            <dt><img class="p-i imgs" src="~/image/@item.Photo" width="250" height="180" /></dt>
+                            <dd class="p-w" style="margin-left: 65px;">@item.Title </dd>
+                            @*<dd style="margin-left: 90px;">@item.Stock</dd>*@
+                            <dd style="margin-left: 70px;" class="p-tex">￥@item.Price</dd>
+                        </dl>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="xin">
+            <div class="ee">
+                <b class="e-e">
+                    Best sellers
+                </b>
+                <span class="e-w">New Life, New Sailing</span>
+            </div>
+            <br />
+            <span class="e-h">
+                Authorized sales of authentic products, first-hand control of best-selling products
+            </span>
+            <div class="grid pai" style="height: 20px;">
+                @foreach (Product item in ViewBag.Product2)
+                {
+                    <a style=" border: 1px solid black; height: 300px; width: 250px; border-radius: 5px;" href="/Car/Details/@item.ProductID">
+                        <dl @*class="grid-cell-1 p"*@>
+                            <dt><img class=" p-i imgs" src="~/image/@item.Photo" width="250" height="180" /></dt>
+                            <dd class="p-w" style="margin-left: 65px;">@item.Title </dd>
+                            @*<dd style="margin-left: 90px;">@item.Stock</dd>*@
+                            <dd style="margin-left: 70px;" class="p-tex">￥@item.Price</dd>
+                        </dl>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="er">
+            <div class="ee">
+                <b class="e-e">Shopkeeper's recommendation</b>
+            </div>
+            <br />
+            <span class="e-h">Good product, good quality!</span>
+            <div class="grid pai" style="height: 20px;">
+                @foreach (Product item in ViewBag.Product3)
+                {
+                    <a style=" border: 1px solid black; height: 300px; width: 250px; border-radius: 5px;" href="/Car/Details/@item.ProductID">
+                        <dl @*class="grid-cell-1 p"*@>
+                            <dt><img class="p-i imgs" src="~/image/@item.Photo" width="250" height="180" /></dt>
+                            <dd class="p-w" style="margin-left: 65px;">@item.Title </dd>
+                            @*<dd style="margin-left: 90px;">@item.Stock</dd>*@
+                            <dd style="margin-left: 70px;" class="p-tex">￥@item.Price</dd>
+                        </dl>
+                    </a>
+                }
+            </div>
+        </div>
+       
+        <div class="zui">
+            <div class="z-quan">
+                <b class="s-tex">Authentic guarantee</b>
+                <br />
+                <span class="s-tex">Integrity First!</span>
+            </div>
+            <div class="z-zhen">Always imitated and never surpassed</div>
+            <div class="z-zhen">Genuine protection, buy with peace of mind!<br />Flash handling of quality issues.</div>
+        </div>
+        <div class="hou">
+            <img class="qqqq" src="~/image/foot1.png" width="100%" />
+        </div>
+    </form>
+
+    
+</body>
+</html>

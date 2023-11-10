@@ -1,0 +1,106 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<BookShop.Models.Order>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ding</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+         #logo ul li:nth-child(5) a{font-weight:bold;color:black ;}
+         #zhu {width:1120px;height:500px;margin:0px auto/*;border:1px solid #808080*/;}
+         #zhong {text-align:center;}
+         #zhong {margin-top:20px;}
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            table td, table th {
+                border: 1px solid #cad9ea;
+                color: #666;
+                height: 30px;
+            }
+
+            table thead th {
+                background-color: #CCE8EB;
+                width: 100px;
+            }
+
+            table tr:nth-child(odd) {
+                background: #fff;
+            }
+
+            table tr:nth-child(even) {
+                background: #F5FAFA;
+            }
+        #sidebar-menu > ul > li > a.active5 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="zhu">
+        <h2>
+            Order list
+        </h2>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>
+                    Date of order placement
+                </th>
+                <th>
+                    Total order amount
+                </th>
+                <th>
+                    Date of receipt
+                </th>
+                <th>
+                    Order Status
+                </th>
+                <th>
+                    Name of consignee
+                </th>
+                <th>
+                    Login Name
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Orderdate)</td>
+                    <td>￥@Html.DisplayFor(modelItem => item.Total)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DeliveryDate)</td>
+                    <td>
+                        @(item.States == 1 ? "Paid" : item.States == 2 ? "Shipped" : "Received goods")
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Delivery.Consignee)</td>
+                    <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.OrdersID },
+                          htmlAttributes: new { @target = "_blank" })
+                        @if (item.States == 1)
+                        {
+                            <a href="/Admin/Send/@item.OrdersID">To ship</a>
+                        }
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+      
+    </div>    
+</body>
+</html>

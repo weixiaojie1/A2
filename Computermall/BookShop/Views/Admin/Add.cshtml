@@ -1,0 +1,125 @@
+﻿@model BookShop.Models.Product
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<Category> data = ViewBag.Data;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        #logo ul li:nth-child(3) a {
+            font-weight: bold;
+            color: black;
+        }
+
+        #zhu {
+            width: 1120px;
+            height: 500px;
+            margin: 0px auto; /*border:1px solid #808080;*/
+        }
+
+        #zhong {
+            text-align: center;
+        }
+
+        #zhong {
+            margin-top: 20px;
+        }
+
+            #zhong p {
+                margin-top: 20px;
+            }
+
+        .kuo {
+            width: 400px;
+            height: 32px;
+        }
+
+        .tian {
+            width: 400px;
+            height: 32px;
+            background-color: red;
+            color: black;
+        }
+
+        .img {
+            text-align: center;
+            width: 200px;
+            height: 50px;
+        }
+        input{
+            border:1px solid #808080;
+        }
+        #sidebar-menu > ul > li > a.active3 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+    </style>
+</head>
+<body>
+    <div id="zhu">
+        <form action="/Admin/Add" method="post" id="zhong" enctype="multipart/form-data">
+            <p>
+                <label>
+                    Product name
+                </label>
+                <input type="text" class="kuo" name="Title" value="@Model.Title" />
+            </p>
+            <p>
+                <label>
+                    Product Type
+                </label>
+                <select class="kuo" id="CateID" name="CateID">
+                    @foreach (var item in data)
+                    {
+                        <option value="@item.CateID">@item.CateName</option>
+                    }
+                </select>
+            </p>
+            <p>
+                <label>
+                    Original price
+                </label>
+                <input type="text" class="kuo" name="MarketPrice" value="@Model.MarketPrice" />
+            </p>
+            <p>
+                <label>
+                    Current price
+                </label>
+                <input type="text" class="kuo" name="Price" value="@Model.Price" />
+            </p>
+            <p>
+                <label>
+                    Product Description
+                </label>
+                <input type="text" class="kuo" name="Content" value="@Model.Content" />
+            </p>
+            <p>
+                <label>
+                    Listing time
+                </label>
+                <input type="datetime-local" class="kuo" name="PostTime" value="@Model.PostTime" />
+                
+            </p>
+            <p>
+                <label>
+                    Inventory quantity
+                </label>
+                <input type="text" name="Stock" class="kuo" value="@Model.Stock" />
+            </p>
+            <p>
+                <label>
+                    picture
+                </label>
+                <input type="file" name="Photo" class="img" value="@Model.Photo" />
+                <input type="submit" class="tian" value="Add" />
+            </p>
+        </form>
+
+    </div>
+</body>
+</html>

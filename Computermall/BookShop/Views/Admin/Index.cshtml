@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />    
+    <title>Index</title>   
+    <style>
+         #logo ul li:nth-child(2) a{font-weight:bold;color:black ;}
+        #houzhu {width:1000px;height:500px;margin:0px auto;border:1px solid black;}
+        tr td img{width:20px;height:40px;}
+        #head {width:760px;height:50px;}
+        #head input{border:3px solid red;background:#fff;outline:none;}
+        #keyword {width:220px;height:36px;}
+        #put-in {width:50px;height:36px;color:white;font-size:15px;position:absolute;}
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            table td, table th {
+                border: 1px solid #cad9ea;
+                color: #666;
+                height: 30px;
+            }
+
+            table thead th {
+                background-color: #CCE8EB;
+                width: 100px;
+            }
+
+            table tr:nth-child(odd) {
+                background: #fff;
+            }
+
+            table tr:nth-child(even) {
+                background: #F5FAFA;
+            }
+        #sidebar-menu > ul > li > a.active2 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+    </style>
+</head>
+<body>    
+    <div id="houzhu " class="container">
+        @*<a style="margin-left:640px;width:40px;height:50px;background-color:red;color:white ;" href="/news/index">促销图书</a>*@
+        <form action="/Admin/Cha" method="post" id="head">
+            <input type="text" name="pname" style="color:#fef8f8;" placeholder="Search for mall products" id="keyword" value="" />
+            <input type="submit" id="put-in" style=" background-color:red;" value="Search" />
+        </form>
+
+        @Html.Partial("HouTai")
+        @if (ViewBag.PageIndex == 1)
+        {
+            @:Previous
+        }
+        else
+        {
+            @Html.ActionLink("Previous", "Index", new { page = ViewBag.PageIndex - 1 })
+        }
+        @if (ViewBag.PageIndex == ViewBag.PageCount)
+        {
+            @:Next
+        }
+        else
+        {
+            @Html.ActionLink("Next", "Index", new { page = ViewBag.PageIndex + 1 })
+        }
+    </div>
+</body>
+</html>

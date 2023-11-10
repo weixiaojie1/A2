@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Administrator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/ionicons.min.css" rel="stylesheet">
+    <link href="/Content/css/morris.css" rel="stylesheet" />
+    <link href="/Content/css/datepicker.css" rel="stylesheet" />
+    <link href="/Content/css/animate.min.css" rel="stylesheet">
+    <link href="/Content/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="/Content/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/Content/css/simplify.min.css" rel="stylesheet">
+    <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    <link href="/css/globalAdmin1.css" rel="stylesheet" type="text/css">
+    <link href="/css/Site.css" rel="stylesheet" type="text/css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="~/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <style>
+        #foots {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+            #foots img {
+                width: 77px;
+                height: 48px;
+                position: absolute;
+                left: 120px;
+                top: -40px;
+            }
+
+        #xian {
+            width: 1280px;
+            height: 5px;
+            background-color: red;
+        }
+
+        #nei {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+
+            #nei h4 {
+                text-align: center;
+                line-height: 47px;
+            }
+
+            #nei h6 {
+                text-align: center;
+            }
+
+        #foots h4 a {
+            color: #ff0000;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="#" class="logo"> <span>Background</span></a>
+            </div>
+            <nav class="navbar-custom">
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            Welcome to use!@*：<span style="color:red;">@(MyAuthentication.GetUserName()) </span>*@
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a class="active2" href="/Admin/Index"><i class="fa fa-fw fa-area-chart"></i><span> Product Management </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a class="active3" href="/Admin/Add"><i class="fa fa-fw fa-table"></i> <span> Product listing </span></a>
+                        </li>
+
+                        <li class="submenu">
+                            <a class="active4" href="/news/index"><i class="fa fa-fw fa-area-chart"></i> <span> Promotional Activities </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a class="active5" href="/Admin/Ding"><i class="fa fa-fw fa-table"></i> <span> order management </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a class="active6" href="/User/user"><i class="fa fa-fw fa-file-text-o"></i> <span> user management </span> </a>
+                        </li>
+                        <li class="submenu">
+                            <a class="active1" href="/Shou/Index"><i class="fa fa-fw fa-bars"></i><span> Return to the mall homepage </span> </a>
+                        </li>
+                        <li class="submenu">
+                            <a class="active7" href="/Shou/Index"><i class="fa fa-fw fa-tv"></i> <span> Exit the backend </span> </a>
+                        </li>
+
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <div class="content-page">
+            <div class="">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer id="foots">
+            <div id="nei">
+                <h4>
+                    <a href="https://validator.w3.org/nu/" target="_blank">Validate HTML5</a>
+                    _assignment2_<a href="https://jigsaw.w3.org/css-validator/" target="_blank">Validate CSS3</a>
+                    _22009153_<a href="mailto:your_email@example.com">contactme@123.com</a>
+                </h4>
+
+
+            </div>
+        </footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>

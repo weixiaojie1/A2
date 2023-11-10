@@ -1,0 +1,124 @@
+﻿@model PagedList<BookShop.Models.Order>
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+<title>User</title>
+<link href="~/Scripts/font.css" rel="stylesheet" />
+<link href="~/Scripts/index.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<style>
+    .aa {
+        text-decoration: none;
+        color: black;
+        position: relative;
+        left: 1300px;
+        bottom: 45px;
+    }
+    body {
+        background-image: url('../../image/418E2F070DC7A208D8F9D1646DCE018A.jpg');
+    }
+    a {
+        /*font-size:x-large;*/
+        text-decoration:none;
+        color:black;
+    }
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        table td, table th {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+
+        table thead th {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+
+        table tr:nth-child(odd) {
+            background: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background: #F5FAFA;
+        }
+</style>
+<div class="container" style="margin-bottom: 70px;">
+    <div>
+        <span style="font-size:14px;">
+            <a href="/Shop/Orders">All</a>
+            | <a href="/Shop/Orders?states=1">Paid</a>
+            | <a href="/Shop/Orders?states=2">
+    Shipped
+</a>
+            | <a href="/Shop/Orders?states=3">
+    Received goods
+</a>
+        </span>
+    </div>
+    <div class="cart">
+        <table>
+            <thead>
+                <tr class="th">
+                    <td style="width: 100px">Order number</td>
+                    <td style="width: 100px">Total</td>
+                    <td style="width: 200px">Order time</td>
+                    <td style="width: 100px">state</td>
+                    <td style="width: 200px">operate</td>
+                
+                    <td style="width: 200px">address</td>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="padding: 8px 0">@item.OrdersID</td>
+                    <td>￥@item.Total</td>
+                    <td>@item.Orderdate</td>
+                    <td>@(item.States == 1 ? "Paid" : item.States == 2 ? "Shipped" : "Received goods")</td>
+                    <td>
+                        @if (item.States == 2)
+                        {
+                            <a href="/Shop/Confirm/@item.OrdersID" class="linkbutton">Confirm receipt</a>
+                        }
+                    </td>
+                  
+                    <td>
+                        @(item.Delivery == null ? "" : item.Delivery.Complete)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <table style="width:600px;margin-left:200px;">
+                            <thead>
+                                <tr class="th">
+                                    <td>
+                                        picture
+                                    </td>
+                                    <td>Product</td>
+                                    <td>price</td>
+                                    <td>quantity</td>
+                                    <td>Total</td>
+                                </tr>
+                            </thead>
+                            @foreach (var detail in item.OrdersDetails)
+                            {
+                                <tr>
+                                    <td><img src="~/image/@detail.Product.Photo" width="100px" height="100px" /></td>
+                                    <td>@detail.Product.Title</td>
+                                    <td>￥@detail.Product.Price</td>
+                                    <td>@detail.Quantity </td>
+                                    <td>￥@(detail.Quantity * detail.Product.Price)</td>
+                                </tr>
+                            }
+                        </table>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Category</title>
+    <link href="~/css/Gril.css" rel="stylesheet" />
+    <script src="~/Content/js/sort1.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/ca0.css">
+
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div id="all">
+
+    </div>
+    <!--首页内容-->
+    <div id="middle">
+        <div id="sidebar">
+            <ul>
+                <li><a id="a1">SORT</a></li>
+                <li><a id="a2" onclick="sortData('ascending')">Ascending</a></li>
+                <li><a id="a3" onclick="sortData('descending')">Descending</a></li>
+            </ul>
+        </div>
+
+
+        <div id="jian">
+
+
+
+            @foreach (Product item in ViewBag.Product)
+            {
+                <a href="/Car/Details/@item.ProductID" data-price="@item.Price">
+
+                    <dl>
+                        <dt><img src="~/image/@item.Photo" /></dt>
+                        <dd class="ef">@item.Title </dd>
+                        <dd class="ji">@item.Content</dd>
+                        <dd>
+                            <span class="e">￥@item.Price</span>
+                            <span class="zhe">￥@item.MarketPrice</span>
+                        </dd>
+                    </dl>
+                </a>
+            }
+        </div>
+    </div>
+    <script>
+        
+    </script>
+
+
+</body>
+</html>

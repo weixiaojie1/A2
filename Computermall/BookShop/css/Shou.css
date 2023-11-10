@@ -1,0 +1,59 @@
+﻿body {
+}
+/*头部*/ 
+        *{margin:0px;padding:0px;}
+#fix {
+    height: 35px;
+    width: 1280px;
+    background-color:coral;
+    color: black;
+    margin: 0 auto;
+}
+        #lift li{width:100px;}
+        #right li{width:300px;}
+        #fix ul li {list-style:none;}
+            #fix ul li a {
+                text-decoration: none;
+                color: black;
+            }
+                
+                #lift {
+                    float: left;
+                }
+        #right {float:right;}
+        #fix ul{line-height:30px;}
+        #lift {margin-left:100px;}
+        #right {margin-right:125px;}
+        /*搜索*/
+        #all{height:auto;width:1280px;margin: 0 auto;}
+        #head {height:80px;width:1220px;margin:0px auto;}
+        #head ul li{list-style:none;}
+        #head img{width:80px;height:80px;}
+        #headone {float:left;}
+        #headtwo {float:right ; }
+        #head ul{margin-top:32px;}
+#head input {
+    border: 3px solid #d375f7;
+    background: #fff;
+    outline: none;
+}
+        #keyword {width:220px;height:30px;}
+        #put-in {width:50px;height:36px;color:white;font-size:15px;position:absolute;}
+        #headtwo {margin-top:25px;margin-right:47px;}
+        /*菜单*/
+        #menu {height:45px;width:1220px;margin:0px auto;}
+        #menu ul li{list-style:none;float:left;width:90px;height:40px;}
+        #menu ul li a{text-decoration:none;color:black;font-size:15px;}
+        #menu ul li a:hover{font-weight:bold;color:black;}
+        #menu ul li a.active{font-weight:bold;color:black ;}
+        /*尾部*/
+#foots {
+    width: 1280px;
+    height: 100px;
+    line-height:100px;
+    margin: 0 auto;
+}
+        #xian {width:1280px;height:5px;background-color:red;}
+        #nei{width:1280px;height:50px;background-color:black;color:white;}
+        #nei h4{text-align:center;line-height:50px;}
+        #nei h6{text-align :center;}

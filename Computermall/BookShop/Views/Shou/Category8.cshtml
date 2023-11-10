@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+
+<!DOCTYPE html>
+<style >
+    
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/Hai.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/ca1.css">
+</head>
+<body>
+    <a class="aa" href="/Shou/Youhui"></a>
+    <!--首页内容-->
+    <div id="middle">
+        
+        <!--精选-->
+        <div id="jian">
+            @foreach (Product item in ViewBag.Product1)
+            {
+                <a href="/Car/Details/@item.ProductID">
+                    <dl>
+                        <dt><img src="~/image/@item.Photo" /></dt>
+                        <dd class="ef">@item.Title</dd>
+                        <dd class="ji">@item.Content</dd>
+                        <dd class="e">￥@item.Price</dd>
+                    </dl>
+                </a>
+            }
+        </div>
+</body>
+</html>

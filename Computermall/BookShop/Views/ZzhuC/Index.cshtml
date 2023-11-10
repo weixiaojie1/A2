@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <form action="/ZzhuC/Index" method="post" style="width:400px" class="container">
+            <p>
+                <label>
+                   account:
+                </label>
+                <input type="text" name="name" value="" class="form-control" />
+            </p>
+            <p>
+                <label>password:</label>
+                <input type="password" name="pwd" value="" class="form-control" />
+            </p>
+            <input type="submit" value="login" class="form-control btn btn-danger" />
+        </form>
+    </div>
+</body>
+</html>

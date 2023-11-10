@@ -1,0 +1,122 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+
+<title>User</title>
+<link href="~/Scripts/font.css" rel="stylesheet" />
+<link href="~/Scripts/index.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<style>
+    .aa {
+        text-decoration: none;
+        color: black;
+        position: relative;
+        left: 1300px;
+        bottom: 45px;
+    }
+    body {
+        background-image: url('../../image/418E2F070DC7A208D8F9D1646DCE018A.jpg');
+    }
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        table td, table th {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+
+        table thead th {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+
+        table tr:nth-child(odd) {
+            background: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background: #F5FAFA;
+        }
+</style>
+<div class="container" style="margin-bottom: 70px;">
+    <div class="cart">
+        <h3 class="title">Shopping Cart Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td>Product Information</td>
+                    <td>Product name</td>
+                    <td>unit-price</td>
+                    <td>quantity</td>
+                    <td>total</td>
+                    <td>operate</td>
+                </tr>
+            </thead>
+            @foreach (var item in Model as List<ShopCart>)
+            {
+                <tr>
+                    <td>
+                        @if (item.IsCheck)
+                        {
+                            <span class="ischecked chked glyphicon glyphicon-check" 
+                                  onclick="check(@item.Product.ProductID, false)"></span>
+                        }
+                        else
+                        {
+                            <span class="ischecked glyphicon glyphicon-unchecked"
+                                  onclick="check(@item.Product.ProductID, true)"></span>
+                        }
+                    </td>
+                    <td>
+                        <img src="~/image/@item.Product.Photo">
+                        @*<span class="pname">@item.Product.Name</span>*@
+                    </td>
+                    <td class="pname">@item.Product.Title</td>
+                    <td class="price">@String.Format("{0:C2}", item.Product.Price)</td>
+                    <td>
+                        <a class="sub" href="/Shop/Reduce?id=@item.Product.ProductID">-</a>
+                        <input type="text" class="number" value="@item.Number" />
+                        <a class="add" href="/Shop/Add?id=@item.Product.ProductID">+</a>
+                    </td>
+                    <td>@String.Format("{0:C2}", item.TotalPrice)</td>
+                    <td><a href="/Shop/Remove?id=@item.Product.ProductID">delete</a></td>
+                </tr>
+
+            }
+            @if ((Model as List<ShopCart>).Count == 0)
+            {
+                <tr>
+                    <td colspan="7" style="text-align: center; padding-top: 8px;">
+                        No products have been added to the shopping cart yet
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="orders-total">
+            <p>
+                <span class="total">@ViewBag.SelTotal</span>items selected in total
+                Total
+                <span class="total-money">@String.Format("{0:C2}", ViewBag.Total)</span>
+            </p>
+
+            <div class="checkout">
+                <a href="/Car/Order" id="to-checkout">
+                    Immediate settlement
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function check(id, ischecked) {
+        location.href = "/Shop/Check/" + id + "?isCheck=" + ischecked;
+    }
+</script>

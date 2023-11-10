@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+@model BookShop.Models.User
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>register</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="../JS/jquery-3.2.0.js" type="text/javascript"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+
+
+
+    <style>
+        body {
+            background-image: url('../../image/bg.png');
+            background-repeat: space;
+        }
+        #zhu {
+            width: 800px;
+            height: 500px;
+        }
+
+        #top {
+            width: 1300px;
+            height: 180px;
+            
+        }
+
+        #login {
+            width: 350px;
+            height:400px;
+            margin-left: 800px;
+            line-height: 40px;
+            /*border: 2px solid #000000;*/
+            border-radius: 5px;
+            box-shadow:10px,10px,10px,inset;
+        }
+    </style>
+</head>
+<body>
+    <div id="zhu">
+        <div id="top"></div>
+        <div style="color:black;font-size:30px;margin-left:650px;">User Registration</div>
+        <div id="login">
+            @using (Html.BeginForm("Reg", "Shou", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <p>
+                    Please enter your account:<br />
+                    @Html.TextBox("UserName", "", new { @class = "form-control", maxlength = "320", placeholder = "account" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    Please enter a nickname:<br />
+                    @Html.TextBox("Nick", "", new { @class = "form-control", maxlength = "10", placeholder = "nickname" })
+                    @Html.ValidationMessageFor(model => model.Nick, "", new { @class = "text-danger" })
+                </p>
+                <p>
+
+                    Please enter email:<br />
+                    @Html.TextBox("Email", "", new { @class = "form-control", maxlength = "50", placeholder = "mailbox" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    Please enter password:<br />
+                    @Html.TextBox("Pwd", "", new { @class = "form-control", maxlength = "16", placeholder = "password" })
+                    @Html.ValidationMessageFor(model => model.Pwd, "", new { @class = "text-danger" })
+                </p>
+
+                <input type="submit" id="submit" class="btn btn-block " value="register" />
+            }
+            <div style="color:red">@TempData["msg"]</div>
+        </div>
+    </div>
+
+</body>
+</html>

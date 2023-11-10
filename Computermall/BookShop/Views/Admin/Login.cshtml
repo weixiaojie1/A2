@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('../../image/418E2F070DC7A208D8F9D1646DCE018A.jpg');
+        }
+
+        img {
+            width: 190px;
+            height: 79px;
+        }
+
+        body {
+            background-color: #eef9fa;
+        }
+
+        hr {
+            height: 3px;
+            background-color: white;
+        }
+    </style>
+    <style>
+        #foots {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+            #foots img {
+                width: 77px;
+                height: 48px;
+                position: absolute;
+                left: 120px;
+                top: -40px;
+            }
+
+        #xian {
+            width: 1280px;
+            height: 5px;
+            background-color: red;
+        }
+
+        #nei {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+
+            #nei h4 {
+                text-align: center;
+                line-height: 47px;
+            }
+
+            #nei h6 {
+                text-align: center;
+            }
+
+        #foots h4 a {
+            color: #ff0000;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="zhu">
+        <div id="zhong">
+            <form action="/Admin/Login" method="post" style="width:300px;margin:100px auto;">
+                <div style="font-size:25px;text-align:center;font-weight:initial;">
+                    Background login
+                </div>
+                <p>
+                    <label>Account:</label>
+                    <input type="text" name="UserName" value="" class="form-control" />
+                </p>
+                <p>
+                    <label>password</label>
+                    <input type="password" name="UserPwd" value="" class="form-control" />
+                </p>
+                <input type="submit" value="login" class="form-control btn btn-danger" />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </form>
+        </div>
+        <footer id="foots">
+            <div id="nei">
+                <h4>
+                    <a href="https://validator.w3.org/nu/" target="_blank">Validate HTML5</a>
+                    _assignment2_<a href="https://jigsaw.w3.org/css-validator/" target="_blank">Validate CSS3</a>
+                    _22009153_<a href="mailto:your_email@example.com">contactme@123.com</a>
+                </h4>
+
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

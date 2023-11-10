@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+         #zhu {width:1120px;height:500px;margin:0px auto;}
+         #zhong {text-align:center;}
+         #zhong {margin-top:20px;}
+         #zhong p{margin-top:20px;}
+        #sidebar-menu > ul > li > a.active6 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    @model BookShop.Models.User
+    <div id="zhu">
+        <table class="table table-bordered table-striped" id="zhong">
+            <tr>
+                <td>Login Name</td>
+                <td>password</td>
+                <td>
+                    mailbox
+                </td>
+                <td>
+                    nickname
+                </td>
+            </tr>
+            <tr>
+                <td>@Model.UserName</td>
+                <td>@Model.Pwd</td>
+                <td>@Model.Email</td>
+                <td>@Model.Nick</td>
+            </tr>
+        </table>
+        <p style="font-size:15px;margin-left:10px;">
+            @Html.ActionLink("back", "user")
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+@model BookShop.Models.Delivery
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delivary</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/index.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <style>
+        #zhu {
+            width: 1120px;
+            margin: 0px auto;
+            border: 1px solid #808080;
+            margin-bottom: 80px;
+        }
+
+        #zhong {
+            text-align: center;
+        }
+
+        #zhong {
+            margin-top: 20px;
+        }
+
+            #zhong p {
+                margin-top: 20px;
+            }
+
+            #zhong label {
+                width: 70px;
+                height: 40px;
+            }
+
+        .kuo {
+            width: 400px;
+            height: 32px;
+        }
+
+        .tian {
+            width: 400px;
+            height: 32px;
+            background-color: red;
+            color: white;
+            border: none;
+            margin-left: 70px;
+        }
+        .aa {
+            text-decoration: none;
+            color: black;
+            position: relative;
+            left: 1300px;
+            bottom: 45px;
+        }
+        body {
+            background-image: url('../../image/418E2F070DC7A208D8F9D1646DCE018A.jpg');
+        }
+    </style>
+</head>
+<body>
+ 
+    <div style="margin-bottom: 40px;">
+        <div id="zhu">
+            <form action="/Car/Order" method="post" id="zhong">
+                @Html.HiddenFor(model => model.DeliveryID)
+                @Html.HiddenFor(model => model.UserID)
+                <h3 class="title">Receiving information</h3>
+                <p>
+                    <label>
+                        Recipient Name
+                    </label>
+                    <input type="text" class="kuo" name="Consignee" value="@Model.Consignee" />
+                    @Html.ValidationMessageFor(model => model.Consignee, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    <label>Address</label>
+                    <input type="text" class="kuo" name="Complete" value="@Model.Complete" />
+                    @Html.ValidationMessageFor(model => model.Complete, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    <label>phone number</label>
+                    <input type="text" class="kuo" name="Phone" value="@Model.Phone" />
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </p>
+
+                <div class="cart">
+                    <h3 class="title">Order details</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Product information</td>
+                                <td>Product name</td>
+                                
+                                <td>unit-price</td>
+                                <td>number</td>
+                                <td>total</td>
+                            </tr>
+                        </thead>
+                        @foreach (var item in ViewBag.Cart as List<ShopCart>)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/image/@item.Product.Photo">
+                                </td>
+                                <td class="pname">@item.Product.Title</td>
+                                <td class="price">@String.Format("{0:C2}", item.Product.Price)</td>
+                                <td>
+                                    @item.Number
+                                </td>
+                                <td>@String.Format("{0:C2}", item.TotalPrice)</td>
+                            </tr>
+
+                        }
+                    </table>
+                    <div class="orders-total">
+                        <p>
+                            <span class="total">@ViewBag.SelTotal</span>items selected in total
+                            Total
+                            <span class="total-money">@String.Format("{0:C2}", ViewBag.Total)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <input type="submit" class="tian" value="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

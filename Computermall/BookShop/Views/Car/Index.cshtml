@@ -1,0 +1,62 @@
+﻿@model BookShop.Models.Order
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        body {
+            background-image: url('../../image/418E2F070DC7A208D8F9D1646DCE018A.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td>
+                    picture
+                </td>
+                <td>Name</td>
+                <td>unit-price</td>
+                <td>number</td>
+                <td>total</td>
+                <td>operate</td>
+            </tr>
+            @foreach (var item in Model.OrdersDetails)
+            {
+                <tr>
+                    <td><img src="~/image/@item.Product.Photo" /></td>
+                    <td>@item.Product.Title</td>
+                    <td>@String.Format("{0:C2}", item.Product.Price)</td>
+                    <td>
+                        <a href="/car/Add/@item.Product.ProductID?quantity=1">+</a>
+                        @item.Quantity
+                        <a href="/car/del/@item.Product.ProductID">-</a>
+                    </td>
+                    <td>@String.Format("{0:C2}",item.Quantity * item.ProductID)</td>
+                    <td>
+                        <a href="/Car/Remove/@item.Product.ProductID">移除</a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="6" style="text-align:right;padding-right:20px;">
+                   Total：@String.Format("{0:C2}", Model.Total)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="padding-left:220px;">
+                    <a href="/car/clear">empty cart</a>
+                    <a href="/car/order">To settle</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

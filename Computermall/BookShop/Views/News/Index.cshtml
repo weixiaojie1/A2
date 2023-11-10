@@ -1,0 +1,158 @@
+﻿@model IEnumerable<BookShop.Models.News>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        p a {
+            color: white;
+        }
+
+        #zhu {
+            width: 1120px;
+            /*height: 1120px;*/
+            margin: 0px auto;
+            margin-top: 40px;
+            /*border: 1px solid #808080;*/
+        }
+
+        #zhong {
+            text-align: center;
+        }
+
+        #zhong {
+            margin-top: 20px;
+        }
+
+            #zhong p {
+                margin-top: 20px;
+            }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            table td, table th {
+                border: 1px solid #cad9ea;
+                color: #666;
+                height: 30px;
+            }
+
+            table thead th {
+                background-color: #CCE8EB;
+                width: 100px;
+            }
+
+            table tr:nth-child(odd) {
+                background: #fff;
+            }
+
+            table tr:nth-child(even) {
+                background: #F5FAFA;
+            }
+        #sidebar-menu > ul > li > a.active4 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+        img {
+            width:200px;
+            height:180px;
+        }
+    </style>
+</head>
+<body>
+    <div class=" container " id="zhu">
+        <p class="btn btn-primary" style="margin-top:20px;">
+            <a href="/News/Create">
+                Add promotional products
+            </a>
+        </p>
+        <table class="table table-bordered table-striped" id="zhong">
+            <tr>
+                <th>
+                    Add promotional products
+                </th>
+                <th>
+                    Original price
+
+                </th>
+                <th>
+                    Current price
+
+                </th>
+                <th>
+                    Product Description
+
+                </th>
+                <th>
+                    picture
+
+                </th>
+                <th>
+                    Listing time
+
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.NTypes
+                    </td>
+                    <td>
+                        @item.States
+                    </td>
+                    <td>
+                        @item.Content
+                    </td>
+                    <td>
+                        <img src="~/image/@item.PhotoUrl" />
+
+                    </td>
+                    <td>
+                        @item.PushTime
+                    </td>
+
+                    <td>
+                        <a href="/News/Edit?id=@item.NewsID">change</a>
+                        <a href="/News/Delete?id=@item.NewsID">delete</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @if (ViewBag.PageIndex == 1)
+        {
+            @:Previous
+
+        }
+        else
+        {
+            @Html.ActionLink("Previous", "Index", new { page = ViewBag.PageIndex - 1 })
+        }
+        @if (ViewBag.PageIndex == ViewBag.PageCount)
+        {
+            @:Next
+
+        }
+        else
+        {
+            @Html.ActionLink("Next", "Index", new { page = ViewBag.PageIndex + 1 })
+        }
+    </div>
+</body>
+</html>

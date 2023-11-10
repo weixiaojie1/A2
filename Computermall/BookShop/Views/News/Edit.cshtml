@@ -1,0 +1,108 @@
+﻿@model BookShop.Models.News
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+         #zhu {width:1120px;height:500px;margin:0px auto;}
+        #zhong {text-align:center;margin-left:250px;}
+         #zhong {margin-top:20px;width:500px;}
+         #zhong p{margin-top:20px;}
+        #sidebar-menu > ul > li > a.active4 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="zhu">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal " id="zhong">
+                <h4 style="text-align:center;">修改</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.NewsID)
+
+                <div class="form-group">
+                    Product name
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    Original price
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NTypes, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NTypes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    Current price
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.States, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.States, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    Product Description
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.HiddenFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    Listing time
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PushTime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PushTime, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Yes" class="btn btn-danger" />
+                        <a class="btn btn-default" href="/news/Index">back</a>
+                    </div>
+                </div>
+            </div>
+            @*<div>
+                    @Html.ActionLink("back", "Index")
+                </div>*@
+        }
+    </div>
+
+
+</body>
+</html>

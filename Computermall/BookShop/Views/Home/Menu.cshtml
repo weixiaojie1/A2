@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+    List<Category> data=ViewBag.Data;
+}
+<style>
+    .li1{
+        background-color:orange;
+        text-align:center;
+        font-size:27px;
+    }
+</style>
+<div id="menu">
+    <ul>
+        @foreach (var item in data)
+        {
+            if (item.CateName == "Home")
+            {
+                <li class="li1"><a href="/Shou/Index">@item.CateName</a></li>
+            }
+            else
+            {
+                <li class="li1"><a href="/Shou/Category?CateID=@item.CateID">@item.CateName</a></li>
+            }
+        }
+        <li  class="li1" ><a href="/Shou/Youhui" style="color:red">preferential</a></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+

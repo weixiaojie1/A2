@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+@model BookShop.Models.User
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>注册</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="../JS/jquery-3.2.0.js" type="text/javascript"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+
+
+
+    <style>
+        #login {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 50px
+        }
+
+        #submit {
+            margin-left: 50px
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        @using (Html.BeginForm("Reg", "ZzhuC", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <p>
+                @Html.TextBox("UserName", "", new { @class = "input-block-small", maxlength = "320", placeholder = "account" })
+            </p>
+            <p>
+                @Html.TextBox("Pwd", "", new { @class = "input-block-small", maxlength = "16", placeholder = "password" })
+            </p>
+            <p>
+                @Html.TextBox("Repwd", "", new { @class = "input-block-small", maxlength = "16", placeholder = "Confirm Password" })
+            </p>
+
+            <input type="submit" id="submit" value="register" />
+        }
+        <div style="color:red">@TempData["msg"]</div>
+    </div>
+</body>
+</html>

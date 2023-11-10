@@ -1,0 +1,155 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+<!DOCTYPE html>
+@model BookShop.Models.News
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px
+        }
+        body {
+            background-image: url('../../image/418E2F070DC7A208D8F9D1646DCE018A.jpg');
+        }
+        .div1 {
+            width: 400px; /*border:1px solid #000000;*/
+            margin-left: 270px;
+            font-size: 18px;
+        }
+
+        #pleft img {
+            width: 300px;
+            height: 300px;
+        }
+
+        #pright {
+            width: 500px;
+            height: 300px;
+            margin-left: 200px;
+        }
+
+        .li {
+            margin-left: 150px;
+            margin-top: -90px;
+        }
+
+        #quantity {
+            width: 45px;
+            text-align: center
+        }
+
+        .price1, .price2, .stock {
+            font-size: 20px
+        }
+
+        #photos {
+            width: 300px;
+            margin: 0 auto
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        #links li {
+            float: left;
+            padding: 0px;
+        }
+
+        #ge {
+            margin-top: 10px;
+        }
+
+        hr {
+            width: 1284px;
+            background-color: red;
+            height: 1px;
+        }
+
+        .price1 {
+            text-decoration: line-through;
+        }
+        .aa {
+            text-decoration: none;
+            color: black;
+            position: relative;
+            left: 1300px;
+            bottom: 45px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="all">
+
+        <hr />
+        <div class="div1">
+            <div id="photos">
+                <div id="pleft">
+                    <ul id="links">
+                        <li>
+                            <img src="~/image/@Model.PhotoUrl" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+  
+            <div id="pright">
+                <div id="ptitle ge">@Model.Title</div>
+                <div id="ge">Introduction:<span class="stock">@Model.Content</span></div>
+                <div id="ge">Original price:<span class="price1">@String.Format("{0:C2}", Model.NTypes)</span></div>
+                <div id="ge">
+                    Current price:
+                    <span class="price2">@String.Format("{0:C2}", Model.States)</span>
+                </div>
+                @using (Html.BeginForm("Add", "Car"))
+                {
+                    <div id="ge">
+                        Purchase quantity:
+                        @*<a href="/Car/Add/@Model.ProductID?quantity=1">+</a>
+        <input type="text" name="quantity" value="1" class="text" style="width:80px" />件
+        <a href="/Car/Del/@Model.ProductID">-</a>*@
+                        <span id="increase" class="increase" onclick="add()">+</span>
+                        <input id="quantity" name="quantity" value="1" maxlength="4" type="text" />
+                        <span id="decrease" class="decrease" onclick="sub()">-</span>
+                    </div>
+                    <div id="op">
+                        <input type="hidden" name="id" value="@Model.NewsID" id="id" />
+
+                        <a class="btn btn-danger" onclick="addCart()">Add to shopping cart</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    //数量加
+    function add() {
+        var num = parseInt(document.getElementById("quantity").value);
+        if (num < 1000)
+            document.getElementById("quantity").value = num + 1;
+    }
+    //数量减
+    function sub() {
+        var num = parseInt(document.getElementById("quantity").value);
+        if (num < 1000)
+            document.getElementById("quantity").value = num - 1;
+    }
+    $(".center p a").click(function () {
+        var img = $(this).parent().siblings("img").attr("src");
+
+    })
+
+    function addCart() {
+        var num = parseInt(document.getElementById("quantity").value);
+        location.href = "/Shop/addCart/@Model.NewsID?num=" + num;
+    }
+</script>

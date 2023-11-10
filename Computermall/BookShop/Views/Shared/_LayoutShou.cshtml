@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Computer Mall</title>
+    
+    <link href="~/css/Shou.css" rel="stylesheet" />
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        /*尾部*/
+        #foots {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+            #foots img {
+                width: 77px;
+                height: 48px;
+                position: absolute;
+                left: 120px;
+                top: -40px;
+            }
+
+        #xian {
+            width: 1280px;
+            height: 5px;
+            background-color: red;
+        }
+
+        #nei {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+
+            #nei h4 {
+                text-align: center;
+                line-height: 47px;
+            }
+
+            #nei h6 {
+                text-align: center;
+            }
+        #foots h4 a {
+            color: #ff0000;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        #fix ul li a:hover {
+            color: #fff;
+        }
+
+        #head input {
+            border: 3px solid #529652;
+            background: #fff;
+            outline: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div id="fix" style="color: black; height: 35px; width: 100%; background-color: coral;">
+        <ul>
+            @if (MyAuthentication.IsLogin() && MyAuthentication.GetRights() == "user")
+            {
+            <li id="lift">
+                Mall homepage. Welcome <span style="color:red;"> @MyAuthentication.GetUserName() </span>
+                [<a href="/Home/Logout">Exit</a>]
+            </li>
+            }
+            else
+            {
+        <li id="lift" style="color:black">
+            Mall homepage. Welcome to Computer Mall[
+            <a href="/Shou/Login">Login</a>
+            |
+            <a href="/Shou/Reg">register</a>]
+        </li>
+            }
+
+
+        <li id="right" style="color:black">
+            <a href="/Shop/Orders">My Order</a>
+            |
+            <a href="/Shop/Index">Shopping Cart</a>
+            |
+            <a href="/Admin/Login">Login to backend</a>
+            |
+            <a href="/Shou/Ren?Nick=@MyAuthentication.GetUserName()">Personal Center</a>
+
+            @*<a href="/Shou/Ren">Personal Center</a>*@
+        </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div id="all">
+
+        <div id="head">
+            <ul>
+                <li id="headone" style="width:80px;height:80px;">
+                    <a href="#">
+                        <img src="~/image/img/com.png" />
+
+                    </a>
+                </li>
+                <li id="headtwo" style="">
+                    @using (Html.BeginForm("Search", "Shou"))
+                    {
+                        <input type="text" name="pname" id="keyword" style="color: black;" placeholder="Search for mall products" value="" />
+                        <input type="submit" name="name" style=" background-color: #529652;" id="put-in" value="Search" />
+                    }
+
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+  
+        @Html.Action("Menu","Home")
+    </div>
+
+    <div id="middle">
+        @RenderBody()
+    </div>
+
+    <footer id="foots">
+        <div id="nei">
+            <h4>
+                <a href="https://validator.w3.org/nu/" target="_blank">Validate HTML5</a>
+                _assignment2_<a href="https://jigsaw.w3.org/css-validator/" target="_blank">Validate CSS3</a>
+                _22009153_<a href="mailto:your_email@example.com">contactme@123.com</a>
+            </h4>
+            
+
+        </div>
+    </footer>
+</body>
+</html>

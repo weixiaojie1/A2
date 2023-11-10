@@ -1,0 +1,21 @@
+﻿body {
+}
+  /*排序*/ 
+        #botton {height:45px;width:1220px;margin:0px auto;}
+        #botton ul li{list-style:none;float:left;width:116px;height:30px;text-align:center;
+                      margin:0px 10px 0px 0px;border-width:0 1px 0 0;border-style:solid;border-color:#b8b5b5;}              
+        #botton ul li a{font-size:13px;text-decoration:none;color:black;line-height:31px;}
+        .bone {width:116px;height:30px;background-color:black;}
+          /*精选*/
+        #jian {height:1000px;width:1220px;margin:0px auto;}
+        #jian a {height:500px;width:300px; margin-right:3px;text-align:center;margin-top:10px;
+                
+        }         
+        #jian  dl dt img{height:350px;width:230px;}
+        #jian a{float:left;}
+        #jian p{height:50px;width:1220px;margin:0px auto;text-align:center;font-size:40px;}
+        #jian a{text-decoration:none;}
+        .ef{color:black;font-size:20px;}
+        .ji {color:#b8b5b5;font-size:15px;}
+        .e {line-height:50px;color:black;font-size:20px;}
+        .zhe{color:#b8b5b5;text-decoration:line-through;}

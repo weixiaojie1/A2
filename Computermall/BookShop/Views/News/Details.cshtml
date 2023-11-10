@@ -1,0 +1,62 @@
+﻿@model BookShop.Models.News
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        #zhu {text-align:center ;}
+    </style>
+</head>
+<body>
+    <div id="zhu">
+        <form action="/News/Details" method="post" id="zhong">
+            <p>
+                <label>Product name</label>
+                <input type="text" class="kuo" name="Title" value="@Model.Title" />
+            </p>
+            <p>
+                <label>
+                    Original price
+                </label>
+                <input type="text" class="kuo" name="CateID" value="@Model.NTypes" />
+
+            </p>
+            <p>
+                <label>
+                    Current price
+                </label>
+                <input type="text" class="kuo" name="MarketPrice" value="@Model.States" />
+            </p>
+            <p>
+                <label>
+                    Product Description
+                </label>
+                <input type="text" class="kuo" name="Price" value="@Model.Content" />
+            </p>
+            <p>
+                <label>
+                    picture
+                </label>
+                <input type="text" class="kuo" name="Content" value="@Model.PhotoUrl" />
+            </p>
+            <p>
+                <label>
+                    Listing time
+                </label>
+                <input type="datetime-local" class="kuo" name="PostTime" value="@Model.PushTime" />
+            </p>
+            <input type="submit" class="tian" value="修改" />
+        </form>
+
+    </div>
+    
+    @Html.ActionLink("back", "Index")
+</body>
+</html>

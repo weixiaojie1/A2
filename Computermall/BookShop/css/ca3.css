@@ -1,0 +1,140 @@
+﻿body {
+    background-color: #e1f0f1;
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+}
+
+#menu ul li:nth-child(1) a {
+    font-weight: bold;
+    color: black;
+}
+/*顶部内容*/
+#top {
+    height: 376px;
+    width: 1220px;
+    margin: 0px auto;
+    box-shadow: 5px 0px 6px #b8b5b5;
+}
+
+    #top div img {
+        height: 376px;
+        width: 1220px;
+    }
+
+#gril {
+    height: 800px;
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#griltop img {
+    height: 300px;
+    width: 1280px;
+}
+
+#gril p {
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    left: 600px;
+    top: 1200px;
+}
+
+#zhuang {
+    width: 1220px;
+    height: 500px;
+    margin: 0px auto;
+}
+
+    #zhuang img {
+        width: 350px;
+        height: 300px;
+    }
+
+    #zhuang dl {
+        float: left;
+        width: 380px;
+        height: 450px;
+        border: 1px solid black;
+        margin-left: 10px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+/* .ef {
+            color: black;
+            font-size: 20px;
+        }
+
+        .ji {
+            color: black;
+            font-size: 10px;
+        }
+
+        .e {
+            line-height: 50px;
+            color: black;
+            font-size: 20px;
+        }*/
+
+#boy {
+    height: 850px;
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#griltop img {
+    height: 300px;
+    width: 1280px;
+}
+
+#boy p {
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    left: 600px;
+    top: 2000px;
+}
+
+#zhuan {
+    width: 1220px;
+    height: 500px;
+    margin: 0px auto;
+}
+
+    #zhuan img {
+        width: 350px;
+        height: 300px;
+    }
+
+    #zhuan dl {
+        float: left;
+        width: 380px;
+        height: 450px;
+        border: 1px solid black;
+        margin-left: 10px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+.jia {
+    line-height: 50px;
+    color: black;
+    font-size: 20px;
+}
+
+.aa {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    left: 1300px;
+    bottom: 420px;
+}
+
+.imgs {
+    width: 200px;
+    height: 250px;
+}

@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model BookShop.Models.User
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>zhuc</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+         #zhu {width:1120px;height:500px;margin:0px auto;}
+         #zhong {text-align:center;}
+         #zhong {margin-top:20px;}
+         #zhong p{margin-top:20px;}
+        #sidebar-menu > ul > li > a.active6 {
+            color: #ffffff !important;
+            background-color: #6194c1;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container" style="width:400px" id="zhu">
+        <form action="/User/zhuc" method="post" id="zhong">
+            <fieldset>
+                <legend>user information</legend>
+                <div>
+                    <label>Login Name</label>
+                    <input type="text" name="UserName" value="@Model.UserName" class="form-control" />
+                </div>
+                <div>
+                    <label>password</label>
+                    <input type="password" name="Pwd" value="@Model.Pwd" class="form-control" />
+                </div>
+                <div>
+                    <label>
+                        mailbox
+                    </label>
+                    <input type="text" name="Email" value="@Model.Email" class="form-control" />
+                </div>
+                <div>
+                    <label>
+                        nickname
+                    </label>
+                    <input type="text" name="Nick" value="@Model.Nick" class="form-control" />
+                </div>
+                <input type="submit" value="save" class="form-control btn btn-danger" />
+            </fieldset>
+            <a href="/User/user">back</a>
+        </form>
+    </div>
+</body>
+</html>

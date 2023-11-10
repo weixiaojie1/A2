@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BookShop.Models.Product>
+@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+    <link href="~/css/Gril.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url('../../image/bg.png');
+            background-size: contain;
+        }
+        #jian {
+            height: 712px;
+            width: 1220px;
+            margin: 0px auto;
+        }
+
+            #jian a dl {
+                margin-right: 20px;
+            }
+
+            #jian dl dt img {
+                height: 300px;
+                width: 300px;
+            }
+
+            #jian a {
+                float: left;
+                background-color: antiquewhite;
+            }
+
+            #jian p {
+                height: 50px;
+                width: 1220px;
+                margin: 0px auto;
+                text-align: center;
+                font-size: 40px;
+            }
+
+            #jian a {
+                text-decoration: none;
+            }
+
+        .aa {
+            text-decoration: none;
+            position: relative;
+            left: 1300px;
+            bottom: 45px;
+            font-weight: bold;
+            background-color: black;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--首页内容-->
+    <div id="middle">
+        <div id="jian">
+            @foreach (Product item in Model)
+            {
+                <a href="/Car/Details/@item.ProductID">
+                    <dl>
+                        <dt><img src="~/image/@item.Photo" /></dt>
+                        <dd class="ef">@item.Title</dd>
+                        <dd class="ji">@item.Content</dd>
+                        <dd>
+                            <span class="e">￥@item.Price</span>
+                            <span class="zhe">￥@item.MarketPrice</span>
+                        </dd>
+                    </dl>
+                </a>
+            }
+
+        </div>
+       </div>
+</body>
+</html>

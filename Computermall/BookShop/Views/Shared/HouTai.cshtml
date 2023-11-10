@@ -1,0 +1,63 @@
+﻿@using BookShop.Models
+@model List<Product>
+@{
+    @*if (Model.Count == 0)
+    {
+        
+    }
+    else
+    {*@
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>
+                    Product name
+                </th>
+                <th>
+                    Product Type
+                </th>
+                <th>
+                    Original price
+                </th>
+                <th>
+                    Current price
+                </th>
+                <th>
+                    Product Description
+                </th>
+                <th>
+                    Listing time
+                </th>
+                <th>
+                    Inventory quantity
+                </th>
+                <th>
+                    picture
+                </th>
+                <th>operate</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductID</td>
+                    <td>@item.Title</td>
+                    <td>
+                        @item.Category.CateName
+                    </td>
+                    <td>@item.MarketPrice</td>
+                    <td>@item.Price</td>
+                    <td>@item.Content</td>
+                    <td>@Convert.ToDateTime(item.PostTime).ToString("yyyy-MM-dd")</td>
+                    <td>@item.Stock</td>
+                    <td><img src="~/image/@item.Photo" /></td>
+                    <td>
+                        <a onclick="return confirm('Are you sure to delete@(item.Title)?')" href="/Admin/del/@item.ProductID" class=" btn btn-danger">delete</a>
+                        <a href="/Admin/Edit/@item.ProductID  " class=" btn btn-danger">change</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        
+    @*  *@}
+
+}

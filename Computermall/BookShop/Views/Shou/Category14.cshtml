@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutShou.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/Gril.css" rel="stylesheet" />
+    <style>
+        #menu ul li:nth-child(2) a {
+            font-weight: bold;
+            color: black;
+        }
+
+        body {
+            background-image: url('../../image/bg.png');
+        }
+        .aa {
+            text-decoration: none;
+            color: black;
+            position: relative;
+            left: 1300px;
+            bottom: 45px;
+        }
+        #jian a {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <a class="aa" href="/Shou/Youhui"></a>
+    <!--首页内容-->
+    <div id="middle">
+        <div id="jian">
+            @foreach (Product item in ViewBag.Product1)
+            {
+                <a href="/Car/Details/@item.ProductID">
+                    <dl>
+                        <dt><img src="~/image/@item.Photo" /></dt>
+                        <dd class="ef">@item.Title</dd>
+                        <dd class="ji">@item.Content</dd>
+                        <dd>
+                            <span class="e">￥@item.Price</span>
+                            <span class="zhe">￥@item.MarketPrice</span>
+                        </dd>
+                    </dl>
+                </a>
+            }
+
+        </div>
+
+    </div>
+</body>
+</html>
